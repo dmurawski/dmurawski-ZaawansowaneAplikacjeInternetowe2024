@@ -1,0 +1,21 @@
+<!-- templates/filmy/wszystkie.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wszystkie Filmy</title>
+</head>
+<body>
+    <h1>Wszystkie Filmy</h1>
+
+    <ul>
+        {% for film in wszystkie_filmy %}
+            <li>
+                <a href="{% url 'szczegoly' film.id %}">{{ film.tytul }} ({{ film.rok }})</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

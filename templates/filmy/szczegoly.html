@@ -1,0 +1,24 @@
+<!-- templates/filmy/szczegoly.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szczegóły Filmu - {{ film.tytul }}</title>
+</head>
+<body>
+    <h1>Szczegóły Filmu - {{ film.tytul }}</h1>
+    <p>Rok: {{ film.rok }}</p>
+    <p>Opis: {{ film.opis }}</p>
+    <p>Premiera: {{ film.premiera|date:"Y-m-d" }}</p>
+    {% if film.permiera %}
+        <p>Premiera: {{ film.premiera }}</p>
+    {% endif %}
+
+    {% if film.imdb_pkts %}
+        <p>IMDb Punkty: {{ film.imdb_pkts }}</p>
+    {% endif %}
+
+</body>
+</html>
