@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'filmy.apps.FilmyConfig',
     'django.contrib.admin',
     'django.contrib.auth',
