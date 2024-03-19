@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Film(models.Model):
     tytul = models.CharField(max_length=64, blank=False, unique=True)
     rok = models.PositiveSmallIntegerField(blank=False)
@@ -36,10 +35,6 @@ class Ocena(models.Model):
     recenzja = models.TextField(default="", blank=True)
     gwiazdki = models.PositiveSmallIntegerField(default=5)
     film = models.ForeignKey(Film, on_delete=models.CASCADE,null=True, blank=True)
-
-    # <-- relacja many-to-1 z modelem 'Film'
-    # Po ustaleniu relacji z modelem Film możliwa jest np. następująca
-    # zmiana reprezentacji tekstowej modelu Ocena
 
     def __str__(self):
         rec = self.recenzja[:20] + ' ...'
