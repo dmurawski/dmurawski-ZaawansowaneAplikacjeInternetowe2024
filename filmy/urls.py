@@ -15,7 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path,include
-from filmy.views import wszystkie, szczegoly, nowy, edycja, UserList,usun, FilmList, FilmRetrieve, FilmCreateList, OcenaList, OcenaRetrieve, OcenaCreateList, AktorList, AktorRetrieve, AktorCreateList , ExtraInfoCreateList, ExtraInfoList, ExtraInfoRetrieve
+from filmy.views import wszystkie, szczegoly, nowy, edycja, usun,\
+    FilmCreateList, FilmRetrieveUpdateDestroy,  ExtraInfoCreateList, ExtraInfoRetrieveUpdateDestroy,\
+    OcenaCreateList, OcenaRetrieveUpdateDestroy, AktorCreateList, AktorRetrieveUpdateDestroy, \
+    UserCreateList, UserRetrieveUpdateDestroy
 
 
 urlpatterns = [
@@ -25,21 +28,18 @@ urlpatterns = [
     path('edycja/<int:film_id>/', edycja),
     path('usun/<int:film_id>/', usun),
 
-    path('filmlist/', FilmList.as_view(), name='FilmList'),
-    path('filmretrieve/<int:pk>/',FilmRetrieve.as_view(), name='FilmRetrieve' ),
-    path('filmcreatelist/', FilmCreateList.as_view(), name='FilmCreateList'),
+    path('filmy/', FilmCreateList.as_view(), name='FilmCreateList'),
 
-    path('userlist/', UserList.as_view(), name='UserList'),
+    path('filmy/<int:pk>/', FilmRetrieveUpdateDestroy.as_view(), name='FilmRetrieveUpdateDestroy'),
+    path('extrainfo/', ExtraInfoCreateList.as_view(), name='ExtraInfoCreateList'),
+    path('extrainfo/<int:pk>/', ExtraInfoRetrieveUpdateDestroy.as_view(), name='ExtraInfoRetrieveUpdateDestroy'),
 
-    path('ocenalist/', OcenaList.as_view(), name='OcenaList'),
-    path('ocenaretrieve/<int:pk>/', OcenaRetrieve.as_view(), name='OcenaRetrieve'),
-    path('ocenacreatelist/', OcenaCreateList.as_view(), name='OcenaCreateList'),
+    path('ocena/', OcenaCreateList.as_view(), name='OcenaCreateList'),
+    path('ocena/<int:pk>/', OcenaRetrieveUpdateDestroy.as_view(), name='OcenaRetrieveUpdateDestroy'),
 
-    path('aktorlist/', AktorList.as_view(), name='AktorList'),
-    path('aktorretrieve/<int:pk>/', AktorRetrieve.as_view(), name='AktorRetrieve'),
-    path('aktorcreatelist/', AktorCreateList.as_view(), name='AktorCreateList'),
+    path('aktor/', AktorCreateList.as_view(), name='AktorCreateList'),
+    path('aktor/<int:pk>/', AktorRetrieveUpdateDestroy.as_view(), name='AktorRetrieveUpdateDestroy'),
 
-    path('extraInfolist/', ExtraInfoList.as_view(), name='ExtraInfoList'),
-    path('extraInforetrieve/<int:pk>/', ExtraInfoRetrieve.as_view(), name='ExtraInfoRetrieve'),
-    path('extraInfocreatelist/', ExtraInfoCreateList.as_view(), name='ExtraInfoCreateList'),
+    path('user/', UserCreateList.as_view(), name='UserCreateList'),
+    path('user/<int:pk>/', UserRetrieveUpdateDestroy.as_view(), name='UserRetrieveUpdateDestroy')
 ]
